@@ -51,3 +51,30 @@ To run this project locally, follow these simple steps:
 ---
 
 ## 📁 Project Structure
+* `index.html`: The core HTML file defining the website's structure.  
+* `script.js`: Contains all JavaScript logic and interactive functionalities.  
+* `style.css`: Dedicated to all CSS styling for the website.  
+* `README.md`: (You are currently viewing this file.)  
+* `assets/`: This directory contains:  
+  * `images/`: Stores project-related images, including profile pictures.  
+  * `js/`: Houses JavaScript library files, such as `particles.js`.
+ 
+---
+
+## 🔧 Customization
+
+It's easy to customize this portfolio for your own use:
+
+-   **Text Content:** Open `index.html` and edit the text in the "About Me," "Projects," and "Contact" sections directly.
+-   **Images:** Replace the images in the `assets/images/` folder with your own. Ensure the filenames match (e.g., `project1.jpg`, `profile.jpg`).
+-   **Skills:** Open `script.js` and find the `myTags` array. You can add or remove skills from this list to update the skill cloud.
+-   **Social Links:** In `index.html`, find the `<footer>` section and replace the `href="#"` in the social links with your profile URLs.
+
+---
+
+## 📧 Contact
+
+Pravin Prajapati
+- **LinkedIn:** [https://www.linkedin.com/in/pravin-prajapati-706722281/](https://www.linkedin.com/in/pravin-prajapati-706722281/)
+- **GitHub:** [https://github.com/your-username](https://github.com/pravin-python)
+- Feel free to reach out for collaboration or inquiries!
