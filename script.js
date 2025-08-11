@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
     // --- RESPONSIVE NAVBAR ---
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
@@ -139,25 +140,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CONTACT FORM VALIDATION ---
     const form = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const BOT_TOKEN = '8317704535:AAHvRTwXL6YuGE29pV6xk2d7h31mGnN5Iw0';
+    const CHAT_ID = '907826508';
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
+
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
 
-        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+        if (!name || !email || !message) {
             formStatus.textContent = 'Please fill out all fields.';
-            formStatus.style.color = '#e94560';
+            formStatus.style.color = '#e94560'; // Highlight color
             return;
         }
 
-        formStatus.textContent = 'Thank you for your message!';
-        formStatus.style.color = '#3a79f0';
-        form.reset();
-        
-        setTimeout(() => {
-            formStatus.textContent = '';
-        }, 5000);
+        // Prepare the message for Telegram
+        let text = `<b>New Message from Portfolio!</b>\n\n`;
+        text += `<b>Name:</b> ${name}\n`;
+        text += `<b>Email:</b> ${email}\n`;
+        text += `<b>Message:</b>\n${message}`;
+
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        const params = new URLSearchParams({
+            chat_id: CHAT_ID,
+            text: text,
+            parse_mode: 'HTML' // To allow HTML tags like <b> for bold text
+        });
+
+        formStatus.innerHTML = "Sending...";
+        formStatus.style.color = '#a9b3c9'; // Muted text color
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: params
+            });
+            
+            const result = await response.json();
+
+            if (result.ok) {
+                formStatus.innerHTML = "Success! Your message has been sent.";
+                formStatus.style.color = '#3a79f0'; // Accent color
+                form.reset();
+            } else {
+                formStatus.innerHTML = "Oops! Something went wrong.";
+                formStatus.style.color = '#e94560'; // Highlight color
+                console.error("Telegram API Error:", result.description);
+            }
+
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            formStatus.innerHTML = "Oops! An error occurred. Please try again.";
+            formStatus.style.color = '#e94560'; // Highlight color
+        } finally {
+            // Make the status message disappear after 5 seconds
+            setTimeout(() => {
+                formStatus.innerHTML = '';
+            }, 5000);
+        }
     });
 });
