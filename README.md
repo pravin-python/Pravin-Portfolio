@@ -75,6 +75,6 @@ It's easy to customize this portfolio for your own use:
 ## 📧 Contact
 
 Pravin Prajapati
-- **LinkedIn:** [https://www.linkedin.com/in/pravin-prajapati-706722281/](https://www.linkedin.com/in/pravin-prajapati-706722281/)
-- **GitHub:** [https://github.com/your-username](https://github.com/pravin-python)
+- **LinkedIn:** [pravin-prajapati](https://www.linkedin.com/in/pravin-prajapati-706722281/)
+- **GitHub:** [pravin-python](https://github.com/pravin-python)
 - Feel free to reach out for collaboration or inquiries!
