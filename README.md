@@ -37,12 +37,12 @@ To run this project locally, follow these simple steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+    git clone [https://github.com/pravin-python/Pravin-Portfolio.git](https://github.com/pravin-python/Pravin-Portfolio.git)
     ```
 
 2.  **Navigate to the project directory:**
     ```bash
-    cd your-repository-name
+    cd Portfolio
     ```
 
 3.  **Open the website:**
